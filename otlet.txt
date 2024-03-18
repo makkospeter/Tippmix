@@ -1,0 +1,17 @@
+[alma]
+
+
+csapat1 = 0
+csapat2 = 0
+	While csapat1 = csapat2:
+		randint(0,19) = csapat1  (6)
+		randint(0,19) = csapat2  (12)
+alma.nev[csapat1] / alma.nev[csapat2]
+
+gyoz/gyoz2 = odd_csapat2 (2)
+
+if csapat2w = 1:
+	feltett penz * odd_csapat2
+
+
+	
