@@ -7,4 +7,4 @@
     - 3.2 - Almenü felépítés
 - 4 – Előzmények törlése (Peti)
 
-- 5.b - Weboldal -csapat bemutatása (Beni) -virtuális cég bemutatása (Peti) -program célja (Dani)
+- 5.b - Weboldal -csapat bemutatása (Peti) -virtuális cég bemutatása (Beni) -program célja (Dani)
