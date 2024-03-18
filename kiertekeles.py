@@ -4,7 +4,7 @@ from kiertekeles_class import Fogadasok
 fogadasok_listaja: list[Fogadasok] = []
 
 def main():
-    file_open()  #A FILE NEVE MÉG KELL
+    file_open('eddigi_fogadasok.csv')
     while  True:
         system('cls')
         match menu():
@@ -30,10 +30,8 @@ def file_open(filename):
     file = open(filename, 'r', encoding='UTF-8')
     for row in file:
         fogadasok_listaja.append(Fogadasok(row))
-    
+    file.readline()
     file.close()
-
-
 
 
 def menu()-> str:
