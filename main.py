@@ -1,7 +1,10 @@
 from os import system
+from tabella_statisztika import *
+beolvasas('premier_tabella.csv')
+beolvasas2('laliga_tabella.csv')
 
 def main():
-    while  True:
+    while True:
         system('cls')
         match menu():
             case '0':
@@ -11,10 +14,28 @@ def main():
             case '2':
                 pass
             case '3':
-                pass
+                    while True:
+                        system('cls')
+                        print('1 - Premier League jelenlegi csapatai helyezés sorrendben')
+                        print('2 - Premier League csapat elemző')
+                        print('3 - La Liga jelenlegi csapatai helyezés sorrendben')
+                        print('4 - La Liga csapat elemző')
+                        print('5 - Vissza')
+                        valasztas = input('Választás: ')
+                        match valasztas:
+                            case '1':
+                                csapat_listazas()
+                            case '2':
+                                bekeres()
+                            case '3':
+                                csapat_listazas2()
+                            case '4':
+                                bekeres2()
+                            case '5':
+                                break
+                        input('Tovább...')
             case '4':
                 pass
-        input('Tovább...')
                 
 
 
