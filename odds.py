@@ -1,6 +1,7 @@
 from tabella_statisztika import *
 from tabella_class import *
 from random import randint
+import random
 
 from tabella_class import Tabella, Tabella2
 tabella_adatai : list[Tabella] = []
@@ -22,7 +23,9 @@ def beolvasas(faljnev):
     file.close()
 
 def rand_meccs():
-    for m in range(1,5):
+        
+    # for m in range(1,5):
+        fogad = 0
         Team1 = 0
         Team2 = 0
         while Team2 == Team1:
@@ -34,6 +37,10 @@ def rand_meccs():
         
         wr1 = int(tabella_adatai[Team1].gyozelmek)/ int(tabella_adatai[Team1].merkozesek)
         wr2 = int(tabella_adatai[Team2].gyozelmek)/ int(tabella_adatai[Team2].merkozesek)
+        draw = (int(tabella_adatai[Team1].dontetlenek) + int(tabella_adatai[Team2].dontetlenek))/(int(tabella_adatai[Team1].merkozesek) + int(tabella_adatai[Team2].merkozesek))
+        # print(f'{int(tabella_adatai[Team1].dontetlenek)} + {int(tabella_adatai[Team2].dontetlenek)} / {int(tabella_adatai[Team1].merkozesek)} + {int(tabella_adatai[Team2].merkozesek)}')
+        # print(draw)
+        esely3 = 1/draw
         if wr1 > wr2:
             esely2 = ((wr1)/(wr2))+ 1
             esely1 = ((wr2)/(wr1))+1
@@ -41,7 +48,18 @@ def rand_meccs():
             # wr2 > wr1
             esely1 = (wr2)/(wr1)+ 1
             esely2 = (wr1)/(wr2)+1
-        print(f'{round(esely1, 2)} / {round(esely2, 2)}')
+
+        print(f'{round(esely1, 2)} | {round(esely3, 2)} | {round(esely2, 2)}')
+        while fogad != 1 and fogad != 2 and fogad != 3:
+            fogad = int(input('Tipp(1 - Hazai csapat nyer/ 2 - Döntetlen/ 3 - Vendég csapat nyer): '))
+        eredmeny = 0
+        eredmeny = random.choices([1, 2, 3], weights=[100/esely1,100/esely3,100/esely2])
+        print(eredmeny)
+        if eredmeny == fogad:
+             print('Nyert')
+        print('Bukott a tipp')
+
+
     
     # print(tabella_adatai[Team2].csapat)
     
