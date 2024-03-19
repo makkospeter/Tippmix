@@ -1,8 +1,9 @@
 class Fogadasok:
     def __init__(self, row) -> None:
-        splitted = row.split(',')
+        # Fogadás sorszáma,Mérkőzés,Tipp,Fogadott összeg,Win/Lose
+        splitted = row.strip().split(',')
         self.sorszam = int(splitted[0])
-        self.merkozes = splitted[1]
-        self.tipp = splitted[2]
+        self.merkozes = str(splitted[1])
+        self.tipp = str(splitted[2])
         self.tet = int(splitted[3])
-        self.nyertel_vagy_sem = splitted[4]
+        self.nyertel_vagy_sem = str(splitted[4])
