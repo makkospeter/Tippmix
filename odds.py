@@ -11,7 +11,7 @@ penz = 1000
 def main():
     beolvasas('premier_tabella.csv')
     rand_meccs()
-    fogad()
+    
 
 
 def beolvasas(faljnev):
@@ -39,9 +39,9 @@ def rand_meccs():
             esely1 = ((wr2)/(wr1))+1
         else: 
             # wr2 > wr1
-            esely1 = ((wr2)/(wr1))+ 1
-            esely2 = ((wr1)/(wr2))+1
-        print(f'{esely1} / {esely2}')
+            esely1 = (wr2)/(wr1)+ 1
+            esely2 = (wr1)/(wr2)+1
+        print(f'{round(esely1, 2)} / {round(esely2, 2)}')
     
     # print(tabella_adatai[Team2].csapat)
     
