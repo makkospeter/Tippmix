@@ -1,6 +1,6 @@
 from tabella_statisztika import *
 from os import system
-def tabella_main():
+def tabella_main_fugv():
     beolvasas('premier_tabella.csv')
     beolvasas2('laliga_tabella.csv')
     while True:
@@ -22,4 +22,4 @@ def tabella_menu() -> str:
     print('3 - La Liga jelenlegi csapatai helyezés sorrendben')
     print('4 - La Liga csapat elemző')
     return input('Választás: ')
-tabella_main()
+tabella_main_fugv()
