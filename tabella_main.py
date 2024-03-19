@@ -1,10 +1,8 @@
 from tabella_statisztika import *
-from os import system
 def tabella_main_fugv():
     beolvasas('premier_tabella.csv')
     beolvasas2('laliga_tabella.csv')
     while True:
-        system('cls')
         match tabella_menu():
             case '1':
                 csapat_listazas()
