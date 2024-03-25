@@ -1,45 +1,46 @@
-# from main import *
-# from os import system
+from main import *
+from os import system
 from kiertekeles_class import Fogadasok
 
 fogadasok_listaja: list[Fogadasok] = []
 
-# def main_2():
-#     file_open('eddigi_fogadasok.csv')
-#     while  True:
-#         system('cls')
-#         match al_menu():
-#             case '1':
-#                 winek_szama = winekszama()
-#                 loseok_szama = loseokszama()
-#                 print(f'Az eddigi fogadások során Win/Lose arány: {winek_szama}:{loseok_szama}')
-#             case '2':
-#                 osszes_penz = osszes_felrakott_penz()
-#                 print(f'Eddigi összes felrakott pénz: {osszes_penz} Ft')
-#             case '3':
-#                 total_lose_money = osszes_elbukott_penz()
-#                 print(f'Eddgig összes elbukott pénz fogadásokon: {total_lose_money} Ft')
-#             case '4':
-#                 legnagyobb_fogadas_osszege = legnagyobb_fogadas()
-#                 print(f'Az eddigi fogadásaid közül a legnagyobb tét az  Ft volt.')
-#             case '5':
-#                 pass
-#             case '6':
-#                 pass
-#             case '7':
-#                 pass
-#         input('Tovább...')
+def main_2():
+    file_open('eddigi_fogadasok.csv')
+    while  True:
+        system('cls')
+        match al_menu():
+            case '1':
+                winek_szama = winekszama()
+                loseok_szama = loseokszama()
+                print(f'Az eddigi fogadások során Win/Lose arány: {winek_szama}:{loseok_szama}')
+            case '2':
+                osszes_penz = osszes_felrakott_penz()
+                print(f'Eddigi összes felrakott pénz: {osszes_penz} Ft')
+            case '3':
+                total_lose_money = osszes_elbukott_penz()
+                print(f'Eddgig összes elbukott pénz fogadásokon: {total_lose_money} Ft')
+            case '4':
+                legnagyobb_fogadas_osszege = legnagyobb_fogadas()
+                print(f'Az eddigi fogadásaid közül a legnagyobb tét az  Ft volt.')
+            case '5':
+                pass
+            case '6':
+                pass
+            case '7':
+                osszes = osszes_fogadas_szama()
+                print(f'Eddigi fogadásaid száma: {osszes} db')
+        input('Tovább...')
 
 
-# def al_menu()-> str:
-#     print('1 - Win/Lose arány')
-#     print('2 - Összes felrakott pénz összege')
-#     print('3 - Összesen elbukott pénz összege')
-#     print('4 - Legnagyobb fogadás')
-#     print('5 - Legnagyobb Win')
-#     print('6 - Legnagyobb Lose')
-#     print('7 - Összes fogadás száma')
-#     return input('Válasz: ')
+def al_menu()-> str:
+    print('1 - Win/Lose arány')
+    print('2 - Összes felrakott pénz összege')
+    print('3 - Összesen elbukott pénz összege')
+    print('4 - Legnagyobb fogadás')
+    print('5 - Legnagyobb Win')
+    print('6 - Legnagyobb Lose')
+    print('7 - Összes fogadás száma')
+    return input('Válasz: ')
 
 
 def file_open(filename):
@@ -84,12 +85,17 @@ def legnagyobb_fogadas():
 
 
 def legnagyobb_win():
-    pass
+    legnagyobb_gyozelem = 0
 
 def legnagyobb_lose():
-    pass
+    legnagyobb_vestes = 0
+
 
 def osszes_fogadas_szama()->int:
-    pass
+    osszes = 0
+    for f in fogadasok_listaja:
+        if f.sorszam > osszes:
+            osszes = f.sorszam
+    return osszes
 
-# main_2()
+main_2()
