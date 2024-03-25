@@ -24,6 +24,7 @@ def main_():
                 
 
 def menu()-> str:
+    print('Tippmix PRO\n')
     print('1 - Fogadás')
     print('2 - Kiértékelés')
     print('3 - Tabella statisztika')
