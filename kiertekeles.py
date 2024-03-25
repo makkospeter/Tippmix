@@ -21,11 +21,13 @@ def main_2():
                 print(f'Eddgig összes elbukott pénz fogadásokon: {total_lose_money} Ft')
             case '4':
                 legnagyobb_fogadas_osszege = legnagyobb_fogadas()
-                print(f'Az eddigi fogadásaid közül a legnagyobb tét az  Ft volt.')
+                print(f'Az eddigi fogadásaid közül a legnagyobb tét az {legnagyobb_fogadas_osszege} Ft volt.')
             case '5':
-                pass
+                legnagyobb_gyozelem = legnagyobb_win()
+                print(f'Eddigi fogadásaid közül a legnagyobb összeg amit egy fogadáson nyertél az {legnagyobb_gyozelem.tet_odds_szorzata} Ft összeg volt.')
             case '6':
-                pass
+                legnagyobb_vesztes = legnagyobb_lose()
+                print(f'Eddigi fogadásaid közül a legnagyobb összeg amit egy fogadáson veszítettél az {legnagyobb_vesztes.tet} Ft összeg volt.')
             case '7':
                 osszes = osszes_fogadas_szama()
                 print(f'Eddigi fogadásaid száma: {osszes} db')
@@ -41,7 +43,6 @@ def al_menu()-> str:
     print('6 - Legnagyobb Lose')
     print('7 - Összes fogadás száma')
     return input('Válasz: ')
-
 
 def file_open(filename):
     file = open(filename, 'r', encoding='UTF-8')
@@ -80,16 +81,24 @@ def legnagyobb_fogadas():
     legnagyobb_fogadas_osszege = 0
     for f in fogadasok_listaja:
         if f.tet > legnagyobb_fogadas_osszege:
-            legnagyobb_fogadas_osszege = f
+            legnagyobb_fogadas_osszege = f.tet
     return legnagyobb_fogadas_osszege
 
-
 def legnagyobb_win():
-    legnagyobb_gyozelem = 0
+    legnagyobb_gyozelem = fogadasok_listaja[0]
+    for f in fogadasok_listaja:
+        if f.nyertel_vagy_sem == 'Win':
+            if f.tet_odds_szorzata > legnagyobb_gyozelem.tet_odds_szorzata:
+                legnagyobb_gyozelem = f
+    return legnagyobb_gyozelem
 
 def legnagyobb_lose():
-    legnagyobb_vestes = 0
-
+    legnagyobb_vesztes = fogadasok_listaja[0]
+    for f in fogadasok_listaja:
+        if f.nyertel_vagy_sem == 'Lose':
+            if f.tet > legnagyobb_vesztes.tet:
+                legnagyobb_vesztes = f
+    return legnagyobb_vesztes
 
 def osszes_fogadas_szama()->int:
     osszes = 0
