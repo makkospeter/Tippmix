@@ -181,5 +181,5 @@ def keres_meccs():
     
 
 
-    
-main()
+if __name__ == "__main__":
+    main()
